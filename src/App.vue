@@ -8,10 +8,6 @@
       <Dropdown label="Agent" v-model="agent" :options="agentNames" />
 
       <TextField label="Dose (mg/kg)" v-model="dose" type="number" :min="0"></TextField>
-
-      <div>
-        <Button @click="calculate" :disabled="!weight || !agent || !dose">Calculate</Button>
-      </div>
     </Section>
 
     <Section dark>
@@ -34,12 +30,11 @@ Volume required (mL) = {{ weight * dose }} mg &divide; {{ concentration }} mg/mL
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import { agents } from './assets/agents.json';
 import Header from './components/Header.vue';
 import Section from './components/Section.vue';
 import Footer from './components/Footer.vue';
-import Button from './components/Button.vue';
 import TextField from './components/TextField.vue';
 import Dropdown from './components/Dropdown.vue';
 import Expandable from './components/Expandable.vue';
@@ -50,23 +45,23 @@ const agentNames = agents.map(agent => ({
 }));
 const weight = ref(0);
 const dose = ref(0);
-const concentration = ref(5);
+const concentration = ref(0);
 const agent = ref("");
-const volumeRequired = ref(0);
+
+const volumeRequired = computed(() => {
+  if (!concentration.value) {
+    return 0;
+  }
+
+  const totalDose = dose.value * weight.value;
+  return totalDose / concentration.value;
+})
 
 watch(agent, (value) => {
   const agentInfo = agents.find(agent => agent.name === value);
   dose.value = agentInfo.dose;
+  concentration.value = agentInfo.concentration;
 });
-
-function calculate() {
-  if (!weight.value) {
-    return;
-  }
-
-  const totalDose = dose.value * weight.value;
-  volumeRequired.value = totalDose / concentration.value;
-}
 </script>
 
 <style scoped>

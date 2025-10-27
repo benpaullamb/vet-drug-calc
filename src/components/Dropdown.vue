@@ -40,6 +40,7 @@ defineProps({
   padding: 16px;
   display: block;
   border: 2px solid #d4d6d8;
+  background-color: white;
   background-image: url("../assets/arrow.svg");
   background-position: calc(100% - 16px);
   background-repeat: no-repeat;

@@ -2,6 +2,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-optical-sizing: auto;
+  color: #002828;
 }

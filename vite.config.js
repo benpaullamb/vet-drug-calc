@@ -16,25 +16,25 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: "Vet Drug Calculator",
-        short_name: "Vet Drug",
+        name: "Vet Pre-Med Calculator",
+        short_name: "Vet Pre-Med",
         description: "Calculate pre-med doses",
         theme_color: "#3674b5",
         background_color: "#3674b5",
         icons: [
           {
-            src: "android-chrome-192x192.png",
+            src: "pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "android-chrome-512x512.png",
+            src: "pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any",
           },
           {
-            src: "android-chrome-512x512.png",
+            src: "pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",

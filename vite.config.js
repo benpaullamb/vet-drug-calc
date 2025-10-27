@@ -19,8 +19,8 @@ export default defineConfig({
         name: "Vet Pre-Med Calculator",
         short_name: "Vet Pre-Med",
         description: "Calculate pre-med doses",
-        theme_color: "#3674b5",
-        background_color: "#3674b5",
+        theme_color: "#00aa28",
+        background_color: "white",
         icons: [
           {
             src: "pwa-192x192.png",

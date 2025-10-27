@@ -3,7 +3,7 @@
     <span class="text">{{ label }}</span>
     <select v-model="model" class="select">
       <option disabled value="">-- Select an option --</option>
-      <option v-for="option in options" :value="option" class="option">{{ option }}</option>
+      <option v-for="option in options" :value="option.value" class="option">{{ option.label }}</option>
     </select>
   </label>
 </template>

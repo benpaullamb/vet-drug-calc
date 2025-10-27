@@ -1,0 +1,24 @@
+{
+  "agents": [
+    {
+      "name": "Medetomidine",
+      "brandName": "Sedator",
+      "dose": 0.05
+    },
+    {
+      "name": "Butorphanol",
+      "brandName": "Torbugesic",
+      "dose": 0.4
+    },
+    {
+      "name": "Ketamine",
+      "brandName": "Ketabel",
+      "dose": 5
+    },
+    {
+      "name": "Atipamezole",
+      "brandName": "Atipam",
+      "dose": 0.125
+    }
+  ]
+}

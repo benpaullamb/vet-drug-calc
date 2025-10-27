@@ -3,17 +3,20 @@
     <Header />
 
     <Section>
-      <TextField label="Patient Weight (kg)" type="number" :min="0"></TextField>
+      <TextField v-model="weight" label="Patient Weight (kg)" type="number" :min="0"></TextField>
     </Section>
 
     <Section dark>
-      <Dropdown label="Dropdown" v-model="dropdownValue" :options="['Dog', 'Cat', 'Pig']" />
-
+      <Dropdown label="Opiate" v-model="opiate" :options="['Methadone']" />
     </Section>
 
     <Section>
-      {{ dropdownValue }}
-      <Button>Calculate</Button>
+      <Button @click="calculate">Calculate</Button>
+    </Section>
+
+    <Section dark>
+      <span class="dose">{{ dose }}ml</span>
+      <span class="perAgent">per agent</span>
     </Section>
 
     <Footer />
@@ -29,11 +32,34 @@ import Button from './components/Button.vue';
 import TextField from './components/TextField.vue';
 import Dropdown from './components/Dropdown.vue';
 
-const dropdownValue = ref("");
+const weight = ref(0);
+const opiate = ref("Methadone");
+const dose = ref(0);
+
+function calculate() {
+  if (!weight.value) {
+    return;
+  }
+
+  const doseWanted = 0.2; // mg/kg
+  const concentration = 5; // mg/ml
+  const totalDose = doseWanted * weight.value; // mg
+  const volume = totalDose / concentration; // ml
+  dose.value = volume;
+}
 </script>
 
 <style scoped>
 .container {
   height: 100dvh;
+}
+
+.dose {
+  display: block;
+  font-size: 20px;
+}
+
+.perAgent {
+  display: block;
 }
 </style>

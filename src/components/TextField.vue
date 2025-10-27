@@ -1,11 +1,13 @@
 <template>
   <label class="label">
     <span class="text">{{ label }}</span>
-    <input class="input" :type="type" :min="min" />
+    <input v-model="model" class="input" :type="type" :min="min" />
   </label>
 </template>
 
 <script setup>
+const model = defineModel();
+
 defineProps({
   label: {
     type: String,

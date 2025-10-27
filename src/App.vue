@@ -10,12 +10,12 @@
       <TextField label="Dose (mg/kg)" v-model="dose" type="number" :min="0"></TextField>
 
       <div>
-        <Button @click="calculate">Calculate</Button>
+        <Button @click="calculate" :disabled="!weight || !agent || !dose">Calculate</Button>
       </div>
     </Section>
 
     <Section dark>
-      <span class="dose" :class="{ disabled: !volumeRequired }">{{ volumeRequired }} ml <span class="perAgent"
+      <span class="dose" :class="{ disabled: !volumeRequired }">{{ volumeRequired }} mL <span class="perAgent"
           :class="{ disabled: !volumeRequired }">per
           agent</span></span>
 

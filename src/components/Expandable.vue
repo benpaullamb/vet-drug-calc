@@ -1,6 +1,8 @@
 <template>
   <details :class="{ disabled: disabled }">
-    <summary class="label">{{ label }}</summary>
+    <summary class="summary">
+      <span class="label">{{ label }}</span>
+    </summary>
     <div class="content">
       <slot />
     </div>
@@ -38,8 +40,10 @@ defineProps({
 
 .label {
   font-size: 14px;
+  padding-left: 4px;
 }
 
+.disabled .summary,
 .disabled .label {
   color: grey;
 }

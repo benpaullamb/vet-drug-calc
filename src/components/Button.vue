@@ -1,8 +1,17 @@
 <template>
-  <button type="button" class="button">
+  <button type="button" class="button" :disabled="disabled">
     <slot />
   </button>
 </template>
+
+<script setup>
+defineProps({
+  disabled: {
+    type: Boolean,
+    default: false
+  }
+});
+</script>
 
 <style scoped>
 .button {
@@ -14,6 +23,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.5s ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
 }
 
 .button:hover,

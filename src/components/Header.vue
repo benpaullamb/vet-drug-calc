@@ -9,7 +9,7 @@
       <span class="description">Pre-med estimator tool for reference</span>
     </div>
 
-    <span class="version">v1.1.0</span>
+    <span class="version">v1.2.0</span>
   </header>
 </template>
 

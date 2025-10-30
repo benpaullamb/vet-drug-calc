@@ -15,7 +15,10 @@
           :class="{ disabled: !volumeRequired }">per
           agent</span></span>
 
-      <Expandable label="Calculation workings" :disabled="!volumeRequired">
+      <Expandable label="Calculation details" :disabled="!volumeRequired">
+        <span class="product">{{ selectedAgent?.brandName }} concentration: {{ selectedAgent?.concentration }} mg/mL (<a
+            :href="selectedAgent?.link" target="_blank">VMD</a>)</span>
+
         <pre>
 Dose (mg) = Patient weight (kg) &times; Dose wanted (mg/kg)
 Dose (mg) = {{ weight }} kg &times; {{ dose }} mg/kg = {{ weight * dose }} mg
@@ -43,6 +46,8 @@ const agentNames = agents.map(agent => ({
   label: `${agent.name} (${agent.brandName})`,
   value: agent.name
 }));
+agentNames.sort((a, b) => a.label.localeCompare(b.label));
+
 const weight = ref(0);
 const dose = ref(0);
 const concentration = ref(0);
@@ -55,7 +60,11 @@ const volumeRequired = computed(() => {
 
   const totalDose = dose.value * weight.value;
   return totalDose / concentration.value;
-})
+});
+
+const selectedAgent = computed(() => {
+  return agents.find(ag => ag.name === agent.value);
+});
 
 watch(agent, (value) => {
   const agentInfo = agents.find(agent => agent.name === value);
@@ -83,5 +92,10 @@ watch(agent, (value) => {
 
 .disabled {
   color: grey;
+}
+
+.product {
+  margin-bottom: 16px;
+  display: block;
 }
 </style>

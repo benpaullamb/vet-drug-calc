@@ -4,25 +4,29 @@
       "name": "Medetomidine",
       "brandName": "Sedator",
       "dose": 0.05,
-      "concentration": 1
+      "concentration": 1,
+      "link": "https://www.vmd.defra.gov.uk/ProductInformationDatabase/product/A006843"
     },
     {
       "name": "Butorphanol",
       "brandName": "Torbugesic",
       "dose": 0.4,
-      "concentration": 10
+      "concentration": 10,
+      "link": "https://www.vmd.defra.gov.uk/ProductInformationDatabase/product/A001413"
     },
     {
       "name": "Ketamine",
       "brandName": "Ketabel",
       "dose": 5,
-      "concentration": 100
+      "concentration": 100,
+      "link": "https://www.vmd.defra.gov.uk/ProductInformationDatabase/product/A010202"
     },
     {
       "name": "Atipamezole",
       "brandName": "Atipam",
       "dose": 0.125,
-      "concentration": 5
+      "concentration": 5,
+      "link": "https://www.vmd.defra.gov.uk/ProductInformationDatabase/product/A007112"
     }
   ]
 }
